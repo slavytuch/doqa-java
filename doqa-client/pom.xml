@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>app.doqa</groupId>
+        <artifactId>doqa-java</artifactId>
+        <version>0.1.0</version>
+    </parent>
+
+    <artifactId>doqa-client</artifactId>
+    <packaging>jar</packaging>
+
+    <name>DoQA client-core (JVM)</name>
+    <description>
+        Reusable JVM client core for the DoQA Autotest API: configuration resolution
+        (system properties over environment over properties file), model builders serializing
+        to the API contract, an HTTP client with token auth, retries and timeouts,
+        run-selection modes, and an Allure-compatible file sink. No runtime dependencies:
+        HTTP via java.net.http (JDK 11+), JSON via a small built-in codec, so any
+        test-framework adapter can build on top of it.
+    </description>
+
+    <dependencies>
+        <!-- No runtime dependencies: HTTP via java.net.http, JSON via app.doqa.client.Json. -->
+
+        <!-- Test-only: unit + contract fixtures over config/models/client (mock transport). -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

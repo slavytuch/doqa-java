@@ -1,0 +1,8 @@
+target/
+results/
+allure-results/
+*.class
+.idea/
+*.iml
+.DS_Store
+doqa.properties
