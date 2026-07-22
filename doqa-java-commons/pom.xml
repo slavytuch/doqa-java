@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>app.doqa</groupId>
+        <artifactId>doqa-java</artifactId>
+        <version>0.1.0</version>
+    </parent>
+
+    <artifactId>doqa-java-commons</artifactId>
+    <packaging>jar</packaging>
+
+    <name>DoQA Java commons</name>
+    <description>
+        Framework-agnostic core shared by all DoQA JVM adapters (JUnit 5, TestNG, ...): the Doqa
+        runtime facade, @Doqa* attribution annotations, the AspectJ @Step aspect, the step tree
+        and per-test runtime context, attribution (explicit id / id-in-title / Allure bridge /
+        signature hash), {param} placeholders, result projection and the reporting session
+        (API batch/streaming or Allure-files sink) on top of doqa-client.
+    </description>
+
+    <dependencies>
+        <!-- client-core: API client + model + config + run-selection. -->
+        <dependency>
+            <groupId>app.doqa</groupId>
+            <artifactId>doqa-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- AspectJ for @Step: aspectjrt ships with commons; the weaver is the host's
+             responsibility (LTW via -javaagent or the aspectj-maven-plugin at build time). -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+
+        <!-- No allure-* dependency: Allure annotations are read reflectively when present. -->
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

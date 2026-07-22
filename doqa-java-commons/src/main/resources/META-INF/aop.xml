@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aspectj PUBLIC "-//AspectJ//DTD//EN" "https://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<!--
+  Load-time-weaving config for @Step. Enable in the host build with
+  -javaagent:/path/to/aspectjweaver.jar  (Surefire argLine or JVM arg); on JDK 16+ also open
+  java.base/java.lang to the unnamed module via the JVM "add-opens" flag (the weaver defines
+  generated around-advice closure classes reflectively). See the adapter README for the exact
+  flags (a double-dash JVM option cannot be quoted inside an XML comment).
+  The <weaver> scope is intentionally broad but excludes framework internals; the host may narrow
+  it to its own test packages with <include>. IMPORTANT: DoqaStepAspect itself MUST stay in the
+  weaver scope (the annotation-style aspect is finished by the weaver at load time - excluding it
+  breaks aspectOf() with a NoSuchMethodError), so when adding <include> filters, also keep
+  <include within="app.doqa.aspects.DoqaStepAspect"/>.
+-->
+<aspectj>
+    <aspects>
+        <aspect name="app.doqa.aspects.DoqaStepAspect"/>
+    </aspects>
+    <weaver options="-Xset:weaveJavaxPackages=false">
+        <!-- Weave everything by default; exclude framework internals to keep weaving cheap.
+             NB: app.doqa.aspects is NOT excluded - the aspect lives there (see above); the
+             package carries no other @Step join points, so the cost is negligible. -->
+        <exclude within="app.doqa.client..*"/>
+        <exclude within="app.doqa.core..*"/>
+        <exclude within="org.junit..*"/>
+        <exclude within="org.aspectj..*"/>
+    </weaver>
+</aspectj>
