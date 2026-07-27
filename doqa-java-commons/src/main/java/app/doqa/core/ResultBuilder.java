@@ -170,7 +170,8 @@ public final class ResultBuilder {
                 .setupResults(setupResults)
                 .teardownResults(teardownResults)
                 .attachments(attachments)
-                .links(new ArrayList<>(links));
+                .links(new ArrayList<>(links))
+                .createManualCase(meta.createManualCase);
 
         // exact test-class FQCN - ClassFixtures walks its enclosing chain for @BeforeAll/@AfterAll
         return new Built(def, result, ref == null ? null : ref.fullName(), attr.allureId,

@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import app.doqa.Doqa;
 import app.doqa.annotations.DoqaCaseIds;
+import app.doqa.annotations.DoqaCreateManualCase;
 import app.doqa.annotations.DoqaId;
 import app.doqa.annotations.DoqaLabels;
 import app.doqa.annotations.DoqaLink;
@@ -38,6 +39,7 @@ class CoreContractTest {
         @DoqaTitle("Login works")
         @DoqaCaseIds({101, 102})
         @DoqaLink(url = "http://bug/1", type = "defect")
+        @DoqaCreateManualCase
         void explicit() {
         }
 
@@ -219,6 +221,41 @@ class CoreContractTest {
                 ref -> null, null, null);
         assertEquals("PINNED-1", built.def.externalId());
         assertEquals("PINNED-1", built.result.externalId());
+    }
+
+    @DoqaCreateManualCase
+    static class ClassOptIn {
+        void inheritedFlag() {
+        }
+    }
+
+    static class InheritedClassOptIn extends ClassOptIn {
+        @Override
+        void inheritedFlag() {
+        }
+    }
+
+    @Test
+    void createManualCaseAnnotationReachesDirectResultOnly() throws Exception {
+        RuntimeContext ctx = new RuntimeContext("uid-create-case");
+        ctx.testRef = ref("explicit", "explicit", false);
+        ResultBuilder.Built built = ResultBuilder.build(
+                ctx, "passed", null, null, attachment -> null, null, null);
+
+        assertEquals(true, built.result.toPayload().get("create_manual_case"));
+        assertNull(built.def.toPayload().get("create_manual_case"));
+    }
+
+    @Test
+    void classLevelManualCaseFlagIsInherited() throws Exception {
+        Method method = InheritedClassOptIn.class.getDeclaredMethod("inheritedFlag");
+        TestRef inherited = new TestRef(
+                InheritedClassOptIn.class.getName(), method.getName(), "", method.getName(),
+                false, InheritedClassOptIn.class, method);
+
+        Meta meta = MetaReader.read(inherited);
+
+        assertTrue(meta.createManualCase);
     }
 
     @Test
