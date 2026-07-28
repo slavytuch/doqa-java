@@ -1,7 +1,6 @@
 package app.doqa.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -82,8 +81,6 @@ class AllureFileWriterTest {
         writer.write(def, result, "io.acme.LoginTest.login", "77");
 
         Map<String, Object> res = readSingle("-result.json");
-        assertFalse(res.containsKey("create_manual_case"),
-                "Direct-only opt-in must not leak through the Allure file sink");
         assertEquals("DOQA-7", res.get("historyId"));
         assertEquals("io.acme.LoginTest.login", res.get("fullName"));
         assertEquals("failed", res.get("status"));
@@ -99,6 +96,7 @@ class AllureFileWriterTest {
         assertEquals("io.acme", labels.get("package"));
         assertEquals("LoginTest", labels.get("testClass"));
         assertEquals("Login with valid credentials", labels.get("doqa_title"));
+        assertEquals("true", labels.get("doqa_create_manual_case"));
 
         // steps: nested Allure node shape (name/status/start/stop/steps)
         List<?> steps = (List<?>) res.get("steps");
