@@ -1,7 +1,7 @@
 # doqa-client - клиентское ядро DoQA Autotest API (JVM)
 
-`app.doqa:doqa-client` - общее JVM-ядро, на котором работают адаптеры тестовых фреймворков DoQA
-(например, `app.doqa:doqa-junit5`). Умеет говорить с DoQA Autotest API напрямую и эмитить
+`io.github.slavytuch:doqa-client` - общее JVM-ядро, на котором работают адаптеры тестовых фреймворков DoQA
+(например, `io.github.slavytuch:doqa-junit5`). Умеет говорить с DoQA Autotest API напрямую и эмитить
 Allure-совместимые файлы результатов для пайплайнов, которые загружают артефакты вместо API.
 
 **Ноль рантайм-зависимостей**: HTTP через `java.net.http` (JDK 11+), JSON через небольшой
@@ -16,14 +16,14 @@ Allure-совместимые файлы результатов для пайп�
 
 ```xml
 <dependency>
-    <groupId>app.doqa</groupId>
+    <groupId>io.github.slavytuch</groupId>
     <artifactId>doqa-client</artifactId>
     <version>0.1.0</version>
 </dependency>
 ```
 
 Большинству проектов этот артефакт напрямую не нужен - подключайте адаптер своего фреймворка
-(например, `app.doqa:doqa-junit5`), он принесёт ядро транзитивно.
+(например, `io.github.slavytuch:doqa-junit5`), он принесёт ядро транзитивно.
 
 ## Конфигурация
 

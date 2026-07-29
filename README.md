@@ -1,7 +1,7 @@
 # DoQA для JVM - автотесты, которые сами попадают в TMS
 
 [![CI](https://github.com/slavytuch/doqa-java/actions/workflows/ci.yml/badge.svg)](https://github.com/slavytuch/doqa-java/actions/workflows/ci.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/app.doqa/doqa-junit5)](https://central.sonatype.com/artifact/app.doqa/doqa-junit5)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.slavytuch/doqa-junit5)](https://central.sonatype.com/artifact/io.github.slavytuch/doqa-junit5)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
 Одна зависимость - и результаты ваших JUnit-тестов появляются в [DoQA](https://doqa.app) сами:
@@ -13,7 +13,7 @@
 
 ```xml
 <dependency>
-  <groupId>app.doqa</groupId>
+  <groupId>io.github.slavytuch</groupId>
   <artifactId>doqa-junit5</artifactId>
   <version>0.2.1</version>
   <scope>test</scope>
@@ -21,7 +21,7 @@
 ```
 
 ```groovy
-testImplementation("app.doqa:doqa-junit5:0.2.1")   // Gradle
+testImplementation("io.github.slavytuch:doqa-junit5:0.2.1")   // Gradle
 ```
 
 Уже на этом шаге адаптер пишет в `results/` файлы Allure-совместимого формата - его
@@ -63,7 +63,7 @@ spaceId=42
 
 | Фреймворк | Артефакт |
 |---|---|
-| JUnit 5 (Jupiter) | [`app.doqa:doqa-junit5`](doqa-junit5/README.md) |
+| JUnit 5 (Jupiter) | [`io.github.slavytuch:doqa-junit5`](doqa-junit5/README.md) |
 
 ## Как это устроено
 

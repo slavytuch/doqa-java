@@ -1,4 +1,4 @@
-# DoQA JUnit 5 Adapter - `app.doqa:doqa-junit5`
+# DoQA JUnit 5 Adapter - `io.github.slavytuch:doqa-junit5`
 
 Адаптер отправляет результаты ваших JUnit 5 тестов в DoQA: автотесты создаются/обновляются сами,
 результаты приходят с шагами, фикстурами, параметрами, вложениями и ссылками. Работает в двух
@@ -14,7 +14,7 @@
 
 ```xml
 <dependency>
-  <groupId>app.doqa</groupId>
+  <groupId>io.github.slavytuch</groupId>
   <artifactId>doqa-junit5</artifactId>
   <version>0.1.0</version>
   <scope>test</scope>

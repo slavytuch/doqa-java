@@ -1,6 +1,6 @@
 # doqa-java-commons - общее ядро JVM-адаптеров DoQA
 
-`app.doqa:doqa-java-commons` - фреймворк-агностичное ядро, общее для всех JVM-адаптеров DoQA.
+`io.github.slavytuch:doqa-java-commons` - фреймворк-агностичное ядро, общее для всех JVM-адаптеров DoQA.
 Слой между API-клиентом и фреймворк-специфичной обвязкой:
 
 ```
@@ -12,7 +12,7 @@
 Всё, что нужно автору адаптера, тоже здесь: дерево шагов, атрибуция, проекция результатов и
 сессия репортинга - новый адаптер остаётся тонкой обвязкой своего фреймворка.
 
-**Зависимости**: `app.doqa:doqa-client` (сам без зависимостей) и `org.aspectj:aspectjrt`
+**Зависимости**: `io.github.slavytuch:doqa-client` (сам без зависимостей) и `org.aspectj:aspectjrt`
 (рантайм аспекта `@Step`). Ничего из Allure, JUnit или Jackson в classpath хоста не протекает.
 
 ## Требования
@@ -22,12 +22,12 @@
 ## Установка
 
 Тестовым проектам НЕ нужно зависеть от этого артефакта напрямую - подключайте адаптер своего
-фреймворка (например, `app.doqa:doqa-junit5`), он принесёт ядро транзитивно. Прямая зависимость
+фреймворка (например, `io.github.slavytuch:doqa-junit5`), он принесёт ядро транзитивно. Прямая зависимость
 нужна только при написании нового адаптера:
 
 ```xml
 <dependency>
-    <groupId>app.doqa</groupId>
+    <groupId>io.github.slavytuch</groupId>
     <artifactId>doqa-java-commons</artifactId>
     <version>0.1.0</version>
 </dependency>
@@ -108,7 +108,7 @@
    `DoqaSession.discoverySelectionActive()` + `Attribution.resolve` против выборки рана) и
    порядок по плану, если фреймворк даёт для этого хуки.
 
-`app.doqa:doqa-junit5` - эталонная реализация этого рецепта.
+`io.github.slavytuch:doqa-junit5` - эталонная реализация этого рецепта.
 
 ## Конфигурация
 

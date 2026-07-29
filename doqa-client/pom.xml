@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>app.doqa</groupId>
+        <groupId>io.github.slavytuch</groupId>
         <artifactId>doqa-java</artifactId>
         <version>0.2.1</version>
     </parent>
