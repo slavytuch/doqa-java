@@ -1,6 +1,6 @@
 # DoQA для JVM - автотесты, которые сами попадают в TMS
 
-[![CI](https://github.com/doqa-app/doqa-java/actions/workflows/ci.yml/badge.svg)](https://github.com/doqa-app/doqa-java/actions/workflows/ci.yml)
+[![CI](https://github.com/slavytuch/doqa-java/actions/workflows/ci.yml/badge.svg)](https://github.com/slavytuch/doqa-java/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/app.doqa/doqa-junit5)](https://central.sonatype.com/artifact/app.doqa/doqa-junit5)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
 
@@ -15,13 +15,13 @@
 <dependency>
   <groupId>app.doqa</groupId>
   <artifactId>doqa-junit5</artifactId>
-  <version>0.1.0</version>
+  <version>0.2</version>
   <scope>test</scope>
 </dependency>
 ```
 
 ```groovy
-testImplementation("app.doqa:doqa-junit5:0.1.0")   // Gradle
+testImplementation("app.doqa:doqa-junit5:0.2")   // Gradle
 ```
 
 Уже на этом шаге адаптер пишет в `results/` файлы Allure-совместимого формата - его
@@ -91,7 +91,7 @@ spaceId=42
 
 Все модули релизятся одной версией; релиз - тег `v<версия>`, дальше CI сам публикует
 подписанные артефакты в Maven Central и собирает release notes из `type:`-лейблов PR
-([история изменений](https://github.com/doqa-app/doqa-java/releases)).
+([история изменений](https://github.com/slavytuch/doqa-java/releases)).
 
 ## Лицензия
 

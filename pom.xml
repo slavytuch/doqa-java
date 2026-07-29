@@ -6,7 +6,7 @@
 
     <groupId>app.doqa</groupId>
     <artifactId>doqa-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.2</version>
     <packaging>pom</packaging>
 
     <name>DoQA Java</name>
@@ -16,7 +16,7 @@
         All modules release together under one version.
     </description>
 
-    <url>https://github.com/doqa-app/doqa-java</url>
+    <url>https://github.com/slavytuch/doqa-java</url>
     <organization>
         <name>DoQA</name>
         <url>https://doqa.app</url>
@@ -36,14 +36,14 @@
         </developer>
     </developers>
     <scm>
-        <connection>scm:git:https://github.com/doqa-app/doqa-java.git</connection>
-        <developerConnection>scm:git:git@github.com:doqa-app/doqa-java.git</developerConnection>
-        <url>https://github.com/doqa-app/doqa-java</url>
+        <connection>scm:git:https://github.com/slavytuch/doqa-java.git</connection>
+        <developerConnection>scm:git:git@github.com:slavytuch/doqa-java.git</developerConnection>
+        <url>https://github.com/slavytuch/doqa-java</url>
         <tag>HEAD</tag>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/doqa-app/doqa-java/issues</url>
+        <url>https://github.com/slavytuch/doqa-java/issues</url>
     </issueManagement>
 
     <modules>
